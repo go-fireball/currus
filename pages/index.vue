@@ -21,8 +21,8 @@
           >
             <v-card elevation="2">
               <v-img
-                  :src="`${car.image}?width=400&height=300`"
-                  height="200"
+                  :src="`${car.image}?width=550&height=300`"
+                  height="300"
               ></v-img>
               <v-card-title>{{ car.model }}</v-card-title>
               <v-card-subtitle>
@@ -32,8 +32,10 @@
                 <strong>Price: {{ car.price }}</strong>
               </v-card-text>
               <v-card-actions>
-                <v-btn color="primary" @click="goToDetails(car.id)">
-                  View Details
+                <v-btn color="primary">
+                  <NuxtLink :to="`/cars/${car.id}`" style="color: inherit; text-decoration: none;">
+                    View Details
+                  </NuxtLink>
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -47,34 +49,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import type {CarSummary} from "~/services/types";
+import carService from "~/services/car-service";
 
-// Sample data: in a real app, you might fetch this from an API.
-const cars = ref([
-  {
-    id: 1,
-    model: 'VOLVO XC90',
-    year: 2019,
-    mileage: 42000,
-    price: '$33,975',
-    image: 'http://localhost:3000/api/image/IMG_9645_jpg.jpg'
-  },
-  {
-    id: 2,
-    model: 'Honda Accord',
-    year: 2015,
-    mileage: 60000,
-    price: '$10,000',
-    image: 'http://localhost:3000/api/image/IMG_9645_jpg.jpg'
-  },
-  {
-    id: 3,
-    model: 'Ford Mustang',
-    year: 2018,
-    mileage: 30000,
-    price: '$18,000',
-    image: 'http://localhost:3000/api/image/IMG_9645_jpg.jpg'
-  }
-])
+const {data: cars} = await useAsyncData<CarSummary[]>(`listing-fetch-cars`, async () => {
+  return await carService.fetchListing();
+}, {lazy: true});
 
 const router = useRouter()
 

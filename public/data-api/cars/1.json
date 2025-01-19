@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "make": "Toyota",
+  "model": "Highlander",
+  "year": 2020,
+  "price": 32975,
+  "mileage": 77000,
+  "trim": "HLE",
+  "drivetrain": "AWD",
+  "fuelType": "Hybrid",
+  "engine": "Hybrid Inline 4 (Combined 36 MPG)",
+  "description": "A very nice 2020 Toyota Highlander with a Pearl White exterior and grey leather interior. This HLE trim is loaded with features like 3rd Row Seating, Heated Seats, EV Mode, Trail Mode, CarPlay, Sunroof, Power Lift Gate, and Adaptive Cruise. It also comes with an 8-year/100K mile Hybrid Component Warranty—making it an excellent family SUV, commuter, or daily driver.",
+  "features": [
+    "3rd Row Seating",
+    "Heated Seats",
+    "EV Mode",
+    "Trail Mode",
+    "Apple CarPlay",
+    "Sunroof",
+    "Power Lift Gate",
+    "Adaptive Cruise"
+  ],
+  "warranty": "8YR/100K Mile Hybrid Component Warranty",
+  "media": {
+    "images": [
+      "http://localhost:3000/api/image/IMG_9645_jpg.jpg",
+      "http://localhost:3000/api/image/IMG_9645_jpg.jpg"
+    ],
+    "videoLinks": []
+  }
+}
